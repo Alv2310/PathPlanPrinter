@@ -99,7 +99,7 @@ def search_dijkstra(origin, goal, grid, heur=None):
     dist = {v: float('inf') for v in  flatten(grid)}
     previous = {v: None for v in flatten(grid)}
     dist[origin] = 0
-    q = list(flatten(grid))
+    q = flatten(grid).copy()
     for m in q:
         for n in neighbors(m, grid):
             m.neighbors[n.point] = n
