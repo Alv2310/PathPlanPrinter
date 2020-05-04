@@ -52,7 +52,7 @@ class PathPlanPrinter():
             tolerance = 12
             offset_x = round(self.grid_size[0]/4)
             offset_y = round(self.grid_size[1]/4)
-            for i in range(round(npdata.shape[0]/self.grid_size[0])+1):
+            for i in range(int(round(npdata.shape[0]/self.grid_size[0])+1)):
                 liCoord = round(i * self.grid_size[0])
                 img_d.line(((0, liCoord), (self.img.size[0], liCoord)),
                            fill=grid_color)
@@ -66,7 +66,7 @@ class PathPlanPrinter():
                         font_color = (0, 0, 0)
                     img_d.text((int(i * self.grid_size[1] + offset_x), int(offset_y)),
                                str(i), fill=font_color)
-            for j in range(round(npdata.shape[1]/self.grid_size[1])+1):
+            for j in range(int(round(npdata.shape[1]/self.grid_size[1])+1)):
                 colCoord = round(j * self.grid_size[1])
                 img_d.line(((colCoord, 0), (colCoord, self.img.size[1])),
                            fill=grid_color)
